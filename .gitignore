@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.hypothesis/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+report.xml
+.ipynb_checkpoints/
+
+# Generated results and exports (reproduce with `make smoke` / `rksweep export`)
+results/
+results-*/
+benchmarks/out/
+ui/public/data/
+*.parquet
+*.h5
+*.hdf5
+
+# Node / UI
+node_modules/
+ui/dist/
+ui/.vite/
+*.tsbuildinfo
+npm-debug.log*
+
+# GitLab Pages build output
+/public/
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.netrc
+
+# Private notes: never publish
+*PRIVATE*
+*-private.*
+career-notes*
+
+# Editors, OS, tooling
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+.claude/
+.playwright-mcp/
