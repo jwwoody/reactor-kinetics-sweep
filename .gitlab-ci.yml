@@ -1,0 +1,74 @@
+stages: [lint, test, sweep, pages]
+
+default:
+  image: python:3.12-slim
+  cache:
+    key: pip
+    paths: [.cache/pip]
+  before_script:
+    - apt-get update -qq && apt-get install -y -qq make > /dev/null
+    - pip install -e ".[dev]"
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+lint:
+  stage: lint
+  script:
+    - make lint
+
+test:
+  stage: test
+  parallel:
+    matrix:
+      - PY: ["3.11", "3.12"]
+  image: python:${PY}-slim
+  script:
+    - pytest -q --cov=rksweep --junitxml=report.xml
+  artifacts:
+    when: always
+    reports:
+      junit: report.xml
+
+ui-check:
+  stage: test
+  image: node:20
+  before_script: []
+  cache:
+    key: npm
+    paths: [ui/node_modules]
+  script:
+    - cd ui && npm ci && npm run check && npm test
+
+sweep:
+  stage: sweep
+  script:
+    - make smoke
+    - make golden
+    - make export
+  artifacts:
+    paths: [results/, ui/public/data/]
+    expire_in: 2 weeks
+
+full-sweep:
+  stage: sweep
+  when: manual
+  allow_failure: true
+  script:
+    - rksweep sweep configs/full.toml --out results-full/
+  artifacts:
+    paths: [results-full/]
+    expire_in: 1 week
+
+pages:
+  stage: pages
+  image: node:20
+  before_script: []
+  needs: [sweep]
+  script:
+    - cd ui && npm ci && npm run build && cd ..
+    - rm -rf public && cp -r ui/dist public
+  artifacts:
+    paths: [public]
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
