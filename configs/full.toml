@@ -1,0 +1,31 @@
+# Full sweep: Latin hypercube over step size (linear), generation time (log) and feedback
+# strength (linear), 300 runs. A plain step is unbounded: at 0.9 dollars and 200 s the power
+# reaches ~1e249 (beyond float32 and meaningless to plot), so the full sweep uses a step with
+# temperature feedback, which makes the reactor limit itself. Precursor columns are stored
+# so the storage benchmark can measure them.
+[sweep]
+name = "full"
+design = "lhs"
+seed = 42
+n_samples = 300
+t_end = 200.0
+input = "step_feedback"
+data_set = "KEEPIN_U235_THERMAL"
+
+[params.rho_dollars]
+low = 0.05
+high = 0.9
+scale = "linear"
+
+[params.gen_time_s]
+low = 1e-7
+high = 1e-4
+scale = "log"
+
+[params.alpha_fb]
+low = -5e-5
+high = -5e-6
+scale = "linear"
+
+[storage]
+precursors = true

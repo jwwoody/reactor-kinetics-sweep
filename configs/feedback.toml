@@ -1,0 +1,17 @@
+# Nonlinear example: a step with temperature feedback. A stronger (more negative) alpha_fb
+# makes the reactor limit itself at a lower power.
+[sweep]
+name = "feedback"
+design = "grid"
+t_end = 500.0
+input = "step_feedback"
+data_set = "KEEPIN_U235_THERMAL"
+
+[params.rho_dollars]
+values = [0.2, 0.4]
+
+[params.gen_time_s]
+value = 1e-5
+
+[params.alpha_fb]
+values = [-5e-6, -2e-5, -5e-5]

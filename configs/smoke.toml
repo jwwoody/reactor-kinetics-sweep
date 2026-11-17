@@ -1,0 +1,14 @@
+# Smoke sweep: 3 x 3 grid of reactivity steps. Runs in seconds; CI runs it on every push and
+# compares the result to tests/golden/smoke_metrics.json.
+[sweep]
+name = "smoke"
+design = "grid"
+t_end = 200.0
+input = "step"
+data_set = "KEEPIN_U235_THERMAL"
+
+[params.rho_dollars]
+values = [0.1, 0.3, 0.5]
+
+[params.gen_time_s]
+values = [1e-6, 1e-5, 1e-4]
