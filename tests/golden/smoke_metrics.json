@@ -1,0 +1,91 @@
+{
+  "metrics": [
+    "period_s",
+    "n_max"
+  ],
+  "rel_tol": 0.0001,
+  "runs": {
+    "1c7f5929f8a2": {
+      "inputs": {
+        "gen_time_s": 1e-06,
+        "rho_dollars": 0.1,
+        "t_end": 200.0
+      },
+      "n_max": 9.777904389908516,
+      "period_s": 98.45185571973768
+    },
+    "1c9b86dd2576": {
+      "inputs": {
+        "gen_time_s": 1e-06,
+        "rho_dollars": 0.3,
+        "t_end": 200.0
+      },
+      "n_max": 116511.90966018324,
+      "period_s": 18.161558091242053
+    },
+    "3b335164558a": {
+      "inputs": {
+        "gen_time_s": 1e-06,
+        "rho_dollars": 0.5,
+        "t_end": 200.0
+      },
+      "n_max": 4236577991277712.0,
+      "period_s": 5.717469258177941
+    },
+    "3fd7e7a1056e": {
+      "inputs": {
+        "gen_time_s": 0.0001,
+        "rho_dollars": 0.1,
+        "t_end": 200.0
+      },
+      "n_max": 9.730934038904621,
+      "period_s": 98.64694294159372
+    },
+    "4925bee9782f": {
+      "inputs": {
+        "gen_time_s": 0.0001,
+        "rho_dollars": 0.5,
+        "t_end": 200.0
+      },
+      "n_max": 2542045540205722.0,
+      "period_s": 5.799863767396797
+    },
+    "56f19ca1fe93": {
+      "inputs": {
+        "gen_time_s": 1e-05,
+        "rho_dollars": 0.5,
+        "t_end": 200.0
+      },
+      "n_max": 4040680780869397.0,
+      "period_s": 5.725007185955429
+    },
+    "b3f42666e5fb": {
+      "inputs": {
+        "gen_time_s": 1e-05,
+        "rho_dollars": 0.1,
+        "t_end": 200.0
+      },
+      "n_max": 9.773615380112895,
+      "period_s": 98.46959734348118
+    },
+    "d9ecb4c1601a": {
+      "inputs": {
+        "gen_time_s": 1e-05,
+        "rho_dollars": 0.3,
+        "t_end": 200.0
+      },
+      "n_max": 115844.4813191212,
+      "period_s": 18.17042820645469
+    },
+    "e52c7e6dd442": {
+      "inputs": {
+        "gen_time_s": 0.0001,
+        "rho_dollars": 0.3,
+        "t_end": 200.0
+      },
+      "n_max": 109423.27966755659,
+      "period_s": 18.258950483428062
+    }
+  },
+  "schema_version": 1
+}
