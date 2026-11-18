@@ -13,7 +13,7 @@ design or safety tool, and its numbers must not be used as one.
 
 ![Compare page: three reactivity steps overlaid on log axes](docs/img/overlay.png)
 
-Compare page: <https://jwwoody.github.io/reactor-kinetics-sweep/> (published by CI from the
+Compare page: <https://reactor.jeffreywoodbury.dev/> (published by CI from the
 smoke sweep).
 
 ## Quick start
